@@ -28,7 +28,8 @@ tonic-build = "0.5"
 shadow-rs = "0.5.25"
 
 [features]
-default = ["sample_kbc", "offline_fs_kbc"]
+default = ["sample_kbc", "offline_fs_kbc", "isecl_kbc"]
 sample_kbc = []
 eaa_kbc = []
+isecl_kbc = []
 offline_fs_kbc = ["openssl"]

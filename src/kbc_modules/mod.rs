@@ -7,6 +7,8 @@
 // For example: "pub mod sample_kbc;"
 #[cfg(feature = "eaa_kbc")]
 pub mod eaa_kbc;
+#[cfg(feature = "isecl_kbc")]
+pub mod isecl_kbc;
 #[cfg(feature = "offline_fs_kbc")]
 pub mod offline_fs_kbc;
 #[cfg(feature = "sample_kbc")]
@@ -49,6 +51,14 @@ impl KbcModuleList {
                 Box::new(sample_kbc::SampleKbc::new(kbs_uri))
             });
             mod_list.insert("sample_kbc".to_string(), instantiate_func);
+        }
+
+        #[cfg(feature = "isecl_kbc")]
+        {
+            let instantiate_func: KbcInstantiateFunc = Box::new(|kbs_uri: String| -> KbcInstance {
+                Box::new(isecl_kbc::IseclKbc::new(kbs_uri))
+            });
+            mod_list.insert("isecl_kbc".to_string(), instantiate_func);
         }
 
         #[cfg(feature = "offline_fs_kbc")]
