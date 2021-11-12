@@ -32,7 +32,7 @@ async fn main() -> Result<()> {
 
     let socket = app_matches
         .value_of("socket addr")
-        .unwrap_or("127.0.0.0:44444")
+        .unwrap_or("127.0.0.1:44444")
         .parse::<SocketAddr>()?;
 
     debug!("starting keyprovider gRPC service...");

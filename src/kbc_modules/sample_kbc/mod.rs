@@ -53,6 +53,7 @@ impl SampleKbc {
     pub fn new(kbs_uri: String) -> SampleKbc {
         let mut kbs_info: HashMap<String, String> = HashMap::new();
         kbs_info.insert("kbs_uri".to_string(), kbs_uri);
+        println!("KBS URL : {:?}", kbs_info);
         SampleKbc { kbs_info: kbs_info }
     }
 }
