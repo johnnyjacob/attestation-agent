@@ -8,6 +8,7 @@ use crate::kbc_modules::{KbcCheckInfo, KbcInterface};
 use aes_gcm::aead::{Aead, NewAead};
 use aes_gcm::{Aes256Gcm, Key, Nonce};
 use anyhow::*;
+use kek::{unwrap, Key};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
@@ -56,5 +57,12 @@ impl IseclKbc {
 
 fn decrypt(wrapped_key: &[u8], key_url: &String) -> Result<Vec<u8>> {
     let plain_text: String = "DecryptedKey".to_string();
+    // Connect to KeyProxy to generate a Nonce
+    // Create a TDX Quote with Nonce
+    // Create a Public / Private key pair.
+    // - Cache the Pub/Private key pair in memory for subsequent requests.
+    // Send TDX Quote + Nonce + Pub key to Key Proxy
+    // Decrypt key material
+    // Return key material.
     Ok(plain_text.into_bytes())
 }
